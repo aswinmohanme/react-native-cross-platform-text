@@ -1,6 +1,6 @@
 /*
 Copyright 2018 LendUp Global, Inc.
- 
+
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,6 +20,7 @@ type FontWeight = TextStyle["fontWeight"];
 
 const getFontStyleForWeight = (fontFamily?: string, fontWeight?: FontWeight) => {
   if (Platform.OS === 'ios') { return { fontFamily, fontWeight }; }
+  fontFamily = fontFamily.replace(/\s+/g, '');
   switch (fontWeight) {
     case "normal": return { fontFamily: `${fontFamily}-Regular`, fontWeight: undefined };
     case "bold": return { fontFamily: `${fontFamily}-Bold`, fontWeight: undefined };
